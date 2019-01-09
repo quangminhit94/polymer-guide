@@ -1,0 +1,42 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="my-mixin.html">
+
+<link rel="import" href="my-carousel.html">
+
+<dom-module id="mixin-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <my-carousel>
+      <img slot='slider' src="https://app-layout-assets.appspot.com/assets/bg1.jpg">
+      <img slot='slider' src="https://app-layout-assets.appspot.com/assets/bg2.jpg">
+      <img slot='slider' src="https://app-layout-assets.appspot.com/assets/bg3.jpg">
+      <img slot='slider' src="https://app-layout-assets.appspot.com/assets/bg4.jpg">>
+    </my-carousel>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class MixinApp extends MyMixin(Polymer.Element) {
+      static get is() { return 'mixin-app'; }
+      /**
+        * Instance of the element is created/upgraded. Useful for initializing
+        * state, set up event listeners, create shadow dom.
+        * @constructor
+        */
+
+    }
+
+    window.customElements.define(MixinApp.is, MixinApp);
+  </script>
+
+
+
+</dom-module>

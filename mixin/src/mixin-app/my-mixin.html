@@ -1,0 +1,58 @@
+<script>
+
+  /**
+   * 
+   * Defining a class expression mixin 
+   * to share implementation between different elements:
+   * @mixinFunction
+   */
+  const MyMixin = (superclass) => class extends superclass {
+
+    constructor() {
+      super();
+      
+    }
+
+    /**
+      * Object describing property-related metadata used by Polymer features
+      */
+    static get properties() {
+      return {
+        bar: {
+          type: Object
+        }
+      };
+    }
+
+    /**
+      * Array of strings describing multi-property observer methods and their
+      * dependant properties
+      */
+    static get observers() {
+      return [
+        'Changed()'
+      ];
+    }
+
+    /**
+      * Called every time the element is inserted into the DOM. Useful for 
+      * running setup code, such as fetching resources or rendering.
+      * Generally, you should try to delay work until this time.
+      */
+    connectedCallback() {
+      super.connectedCallback();
+      this.addEventListener('keypress', e => this.handlePress(e));
+    }
+
+    handlePress(e) {
+      console.log('key pressed: ' + e.charCode);
+    }
+
+    // connectedCallback() {
+    //   if (super.connectedCallback) {
+    //     super.connectedCallback();
+    //   }
+    // }
+  }
+
+</script>

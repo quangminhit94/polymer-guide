@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="data-biding-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class DataBidingApp extends Polymer.Element {
+      static get is() { return 'data-biding-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'data-biding-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(DataBidingApp.is, DataBidingApp);
+  </script>
+</dom-module>
