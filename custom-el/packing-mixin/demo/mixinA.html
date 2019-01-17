@@ -1,0 +1,13 @@
+
+<link rel="import" href="mixinB.html">
+<link rel="import" href="mixinC.html">
+
+<script>
+  MixinA = (base) => class extends MixinC(MixinB(base)) {
+    constructor() {
+      super();
+      console.log('Mixin A');
+    }
+  }
+
+</script>

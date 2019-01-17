@@ -1,0 +1,42 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="my-mixin.html">
+
+<dom-module id="my-element-2">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      :host([bar]) {
+        background: blue;
+        color: white;
+      }
+    </style>
+    <h2>Hello [[bar]] 2</h2>
+  </template>
+
+  <script>
+    /**
+     * `custom-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class MyElement2 extends MyMixin(Polymer.Element) {
+      static get is() { return 'my-element-2'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'my-element-2'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(MyElement2.is, MyElement2);
+  </script>
+</dom-module>

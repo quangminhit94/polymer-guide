@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>custom-element demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="attribute-deserialization.html">
+    <link rel="import" href="custom-deserialization.html">
+    <link rel="import" href="default-prop.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+
+      <h1>Configuring default property values</h1>
+      <a href="https://polymer-library.polymer-project.org/2.0/docs/devguide/properties" target="_blank" rel="noopener noreferrer">Read more</a>
+      <demo-snippet>
+        <template>
+          <default-prop>
+          </default-prop>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

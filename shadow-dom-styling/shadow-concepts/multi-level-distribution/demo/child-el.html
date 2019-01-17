@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="child-el">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `multi-level-distribution`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ChildEl extends Polymer.Element {
+      static get is() { return 'child-el'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'child-el'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ChildEl.is, ChildEl);
+  </script>
+</dom-module>

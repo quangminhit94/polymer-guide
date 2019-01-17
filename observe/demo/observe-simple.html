@@ -1,0 +1,92 @@
+<!-- <link rel="import" href="../bower_components/polymer/polymer-element.html"> -->
+
+<dom-module id="observe-simple">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      :host([red]) {
+        background: red;
+        color: white
+      }
+      :host([blue]) {
+        background: blue;
+        color: white;
+      }
+
+      .hello {
+        border: 1px solid black;
+        width: 50px;
+        height: 50px;
+      }
+
+    </style>
+    <h2>What color want to set to your element? Type it into the input: [[watch]]</h2>
+    <input type='text' value='{{watch::input}}'>
+
+  </template>
+
+  <script>
+    /**
+     * `observe-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ObserveSimple extends Polymer.Element {
+      static get is() { return 'observe-simple'; }
+      static get properties() {
+        return {
+          watch: {
+            type: String,
+            observer: '_activeChanged'
+          },
+          blue: {
+            type: String,
+            reflectToAttribute: true,
+            value: false
+          },
+          red: {
+            type: String,
+            reflectToAttribute: true,
+            value: false
+          }
+        };
+      }
+
+
+      /**
+        * Called every time the element is inserted into the DOM. Useful for 
+        * running setup code, such as fetching resources or rendering.
+        * Generally, you should try to delay work until this time.
+        */
+      connectedCallback() {
+        super.connectedCallback();
+        // this.setAttribute('text-value', 'this is demo of observe')
+        console.log(this)
+      }
+
+      // Observer method defined as a class method
+      _activeChanged(newValue, oldValue) {
+        if(newValue === 'blue') {
+          this.blue = !this.blue;
+        }
+        else {
+          this.blue = false;
+        }
+        if(newValue === 'red') {
+          this.red = !this.red
+        }
+        else {
+          this.red = false;
+        }
+      }
+    }
+
+    window.customElements.define(ObserveSimple.is, ObserveSimple);
+  </script>
+</dom-module>

@@ -1,0 +1,39 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="attribute-deserialization">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+  </template>
+
+  <script>
+    class AttributeDeserialization extends Polymer.Element {
+  
+      static get properties() {
+        return {
+          user: String,
+          manager: {
+            type: Boolean
+          }
+        }
+      }
+
+      _handleClick() {
+        console.log(this);
+      }
+  
+      connectedCallback() {
+        super.connectedCallback();
+        
+        // render
+        this.textContent = 'Hello World, my user is ' + (this.user || 'nobody') + '.\n' +
+          'This user is ' + (this.manager ? '' : 'not') + ' a manager.';
+      }
+    }
+  
+    customElements.define('attribute-deserialization', AttributeDeserialization);
+  </script>
+</dom-module>

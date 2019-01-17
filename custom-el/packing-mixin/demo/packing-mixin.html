@@ -1,0 +1,52 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="mixinA.html">
+
+<dom-module id="packing-mixin">
+  <template>
+    <style>
+      :host {
+        display: block;
+        font-family: sans-serif;
+        font-size: 14px;
+      }
+    </style>
+    <p>
+      When creating a mixin that you intend to share with other groups or publish, a couple of additional steps are recommended:
+    </p>
+    <ul>
+      <li>Use the <b>Polymer.dedupingMixin</b> function to produce a mixin that can only be applied once.
+      </li>
+      <li>
+        Create a unique namespace for your mixins, to avoid colliding with other mixins or classes that might have similar names.
+      </li>
+    </ul>
+    <p>The dedupingMixin function is useful because a mixin that's used by other mixins may accidentally be applied more than once. For example if MixinA includes MixinB and MixinC, and you create an element that uses MixinA but also uses MixinB directly:</p>
+    <Button on-click='_test'>Click [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `packing-mixin`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class PackingMixin extends MixinB(MixinA(Polymer.Element)) {
+      static get is() { return 'packing-mixin'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'packing-mixin'
+          }
+        };
+      }
+    }
+
+    
+    
+    window.customElements.define(PackingMixin.is, PackingMixin);
+  </script>
+</dom-module>

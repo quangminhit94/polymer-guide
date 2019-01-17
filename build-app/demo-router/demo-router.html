@@ -1,0 +1,56 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<link rel="import" href="../app-route/app-location.html">
+<link rel="import" href="../app-route/app-route.html">
+
+<dom-module id="demo-router">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <!-- The <app-location> element is simply a proxy for window.location that provides two-way data binding -->
+    <!-- app-location binds to the app's URL -->
+    <app-location route="{{route}}"></app-location>
+
+    <!-- this app-route manages the top-level routes -->
+    <app-route
+        route="{{route}}"
+        pattern="/:view"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <!-- iron-pages selects the view based on the active route -->
+    <iron-pages selected="[[routeData.view]]" attr-for-selected="name">
+      <my-profile-view name="profile" route="{{subroute}}"></my-profile-view>
+      <my-message-list-view name="messages" route="{{subroute}}"></my-message-list-view>
+      <my-detail-view name="detail" route="{{subroute}}"></my-detail-view>
+    </iron-pages>
+  </template>
+
+    <!-- The <app-route> element matches the current route against a pattern (where :view represents a parameter). If the pattern matches, the route is active and any URL parameters are added to the data object. In this case, the path /profile/tina matches the top-level route, setting routeData.view to profile. The remainder of the route (/tina) forms the tail. -->
+  <script>
+    /**
+     * `demo-router`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class DemoRouter extends Polymer.Element {
+      static get is() { return 'demo-router'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'demo-router'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(DemoRouter.is, DemoRouter);
+  </script>
+</dom-module>

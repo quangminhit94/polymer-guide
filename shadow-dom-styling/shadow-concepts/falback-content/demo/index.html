@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>falback-content demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="falback-content.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h1>Basic falback-content demo</h1>
+      <a href="https://polymer-library.polymer-project.org/2.0/docs/devguide/shadow-dom#fallback-content">Read more</a>
+      <demo-snippet>
+        <template>
+          <falback-content>
+              <img slot="icon" src="https://placeimg.com/640/480/animals">
+
+              this is an animal image
+
+          </falback-content>
+          <falback-content>
+              No content here. Image set to default any
+
+          </falback-content>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

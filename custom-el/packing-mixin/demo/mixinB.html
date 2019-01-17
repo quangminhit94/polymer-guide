@@ -1,0 +1,20 @@
+<script>
+  // (base) => class extends base {
+
+  MixinB = Polymer.dedupingMixin((base) => class extends base {
+    constructor() {
+      super();
+      console.log('B');
+    }
+    _test() {
+      console.log('test B')
+    }
+  })
+
+  // MixinB = (base) => class extends (base) {
+  //   constructor() {
+  //     super();
+  //     console.log('Mixin B');
+  //   }
+  // }
+</script>

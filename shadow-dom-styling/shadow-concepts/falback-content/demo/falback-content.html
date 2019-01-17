@@ -1,0 +1,40 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="falback-content">
+  <template>
+    <style>
+      :host {
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+      }
+      img {
+        width: 100%;
+      }
+      ::slotted(img) {
+        width: 100%;
+      }
+    </style>
+    <slot name="icon">
+      <img src="https://placeimg.com/640/480/any">
+    </slot>
+    <slot></slot>
+  </template>
+
+  <script>
+    /**
+     * `falback-content`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class FalbackContent extends Polymer.Element {
+      static get is() { return 'falback-content'; }
+      
+    }
+
+    window.customElements.define(FalbackContent.is, FalbackContent);
+  </script>
+</dom-module>
